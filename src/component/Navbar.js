@@ -5,6 +5,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import logo from '../component/Assets/logo2.svg'
+import SearchIcon from '@mui/icons-material/Search';
 
 const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -14,7 +15,8 @@ const StyledToolbar = styled(Toolbar)({
 const SearchInput = styled(InputBase)({
     borderRadius: "10px",
     paddingLeft: "10px",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    // width:"400px"
 });
 
 const StyledMenuItem = styled(MenuItem)({
@@ -58,21 +60,23 @@ const Navbar = () => {
                     <Container maxWidth='xl'>
                         <StyledToolbar>
                             <img src={logo} alt="" />
-                            <search>
+                            <search >
                                 <SearchInput
+                                    sx={{ display: { xs: "none", sm: "block" } }}
                                     placeholder="Search…"
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </search>
+                            <SearchIcon sx={{ display: { xs: "block", sm: "none" } }} />
                             <StyledAvatarContainer>
-                            <AddShoppingCartIcon sx={{ marginRight: "20px" }} onClick={handleDrawerOpen} />
+                                <AddShoppingCartIcon sx={{ marginRight: "20px" }} onClick={handleDrawerOpen} />
                                 <Avatar
                                     sx={{ width: 32, height: 32, cursor: 'pointer' }}
                                     onClick={handleAvatarClick}
                                 >
                                     A
                                 </Avatar>
-                               
+
                             </StyledAvatarContainer>
                             <Menu
                                 anchorEl={anchorEl}
@@ -108,7 +112,7 @@ const Navbar = () => {
                     anchor="right"
                     open={drawerOpen}
                     onClose={handleDrawerClose}
-                    
+
                 >
                     <List>
                         <ListItem button onClick={handleDrawerClose}>
