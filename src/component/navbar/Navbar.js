@@ -4,19 +4,26 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import logo from '../component/Assets/logo2.svg'
+import logo from '../Assets/logo2.svg';
 import SearchIcon from '@mui/icons-material/Search';
+import Navbar_2 from './Navbar_2';
+import ArticleIcon from '@mui/icons-material/Article';
 
 const StyledToolbar = styled(Toolbar)({
     display: "flex",
     justifyContent: "space-between",
+    color: "black",
 });
 
 const SearchInput = styled(InputBase)({
     borderRadius: "10px",
     paddingLeft: "10px",
     backgroundColor: "white",
-    // width:"400px"
+    color: "black",
+    width: "400px",
+    "&:focus": {
+        backgroundColor: "white",
+    },
 });
 
 const StyledMenuItem = styled(MenuItem)({
@@ -26,6 +33,7 @@ const StyledMenuItem = styled(MenuItem)({
     padding: '8px 16px',
     justifyContent: 'left',
     marginBottom: '8px',
+    color: "black",
 });
 
 const StyledAvatarContainer = styled('div')({
@@ -55,19 +63,26 @@ const Navbar = () => {
 
     return (
         <>
-            <Box>
-                <AppBar position='sticky'>
+            <Box >
+
+                <AppBar
+                    sx={{ backgroundColor: "orange" }}
+                    position='sticky'>
                     <Container maxWidth='xl'>
                         <StyledToolbar>
+
+                            <SearchIcon
+                                sx={{ display: { xs: "block", sm: "none" } }} />
+
                             <img src={logo} alt="" />
-                            <search >
-                                <SearchInput
-                                    sx={{ display: { xs: "none", sm: "block" } }}
-                                    placeholder="Search…"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </search>
-                            <SearchIcon sx={{ display: { xs: "block", sm: "none" } }} />
+
+                            <SearchInput
+                                sx={{ display: { xs: "none", sm: "block" } }}
+                                placeholder="Search…"
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+
+
                             <StyledAvatarContainer>
                                 <AddShoppingCartIcon sx={{ marginRight: "20px" }} onClick={handleDrawerOpen} />
                                 <Avatar
@@ -76,7 +91,6 @@ const Navbar = () => {
                                 >
                                     A
                                 </Avatar>
-
                             </StyledAvatarContainer>
                             <Menu
                                 anchorEl={anchorEl}
@@ -112,7 +126,6 @@ const Navbar = () => {
                     anchor="right"
                     open={drawerOpen}
                     onClose={handleDrawerClose}
-
                 >
                     <List>
                         <ListItem button onClick={handleDrawerClose}>
@@ -124,6 +137,7 @@ const Navbar = () => {
                     </List>
                 </Drawer>
             </Box>
+            <Navbar_2 />
         </>
     );
 };

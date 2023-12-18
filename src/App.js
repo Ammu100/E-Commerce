@@ -1,11 +1,21 @@
 
 import './App.css';
-import Navbar from './component/Navbar';
+import Feed from './component/Feed';
+import Navbar from '../src/component/navbar/Navbar';
+
+
+
+
 
 function App() {
   return (
     <>
       <Navbar/>
+      <Feed/>
+     
+    
+      
+      
     </>
   );
 }
